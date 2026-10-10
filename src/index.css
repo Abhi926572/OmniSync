@@ -1,0 +1,52 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
+    --app-font-scale: 100%;
+  }
+
+  html {
+    font-family: var(--font-sans);
+    font-size: var(--app-font-scale);
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  /* High contrast mode adjustments */
+  .theme-high-contrast {
+    --tw-border-opacity: 1 !important;
+  }
+  .theme-high-contrast button,
+  .theme-high-contrast a,
+  .theme-high-contrast input,
+  .theme-high-contrast select {
+    border-width: 2px !important;
+  }
+
+  /* Custom subtle scrollbars */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: rgba(148, 163, 184, 0.3);
+    border-radius: 9999px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: rgba(148, 163, 184, 0.5);
+  }
+}
+
+/* Animations */
+@keyframes pulse-subtle {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.85; transform: scale(1.02); }
+}
+
+.animate-pulse-subtle {
+  animation: pulse-subtle 2.5s infinite ease-in-out;
+}
